@@ -1,22 +1,38 @@
+// function succeed(item) {
+//   return { ...item };
+// }
+
+// function fail(item) {
+//   return { ...item };
+// }
+
 module.exports = {
-  succeed,
-  fail,
+  // succeed,
+  // fail,
   repair,
-  get,
+  // get,
 };
 
-function succeed(item) {
-  return { ...item };
-}
 
-function fail(item) {
-  return { ...item };
-}
 
-function repair(item) {
-  return { ...item };
-}
+function repair(item){
+  if (typeof item.name !== "string"
+      || typeof item.durability !== "number"
+      || item.durability > 100
+      || item.durability < 0
+      ){
+      return {error: "data not correct"};
+  } else if (item.durability === 100) {
+      return {error: "Item already fully repaired"};
+  }
 
-function get(item) {
-  return { ...item };
-}
+  let newItem = item;
+
+  newItem.durability = 100;
+
+  return newItem;
+};
+
+
+
+
