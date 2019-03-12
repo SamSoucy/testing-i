@@ -1,13 +1,10 @@
-// function succeed(item) {
-//   return { ...item };
-// }
 
 // function fail(item) {
 //   return { ...item };
 // }
 
 module.exports = {
-  // succeed,
+  succeed,
   // fail,
   repair,
   // get,
@@ -32,6 +29,21 @@ function repair(item){
 
   return newItem;
 };
+
+function succeed(item) {
+  if (typeof item.name !== "string"
+    || typeof item.enhancement !== "number"
+    || item.enhancement > 20
+    || item.enhancement < 0) {
+    return { error: "data not correct" };
+  } else if (item.enhancement === 20) {
+    return { error: "cannot enhance" }
+  }
+  let newItem = item;
+  newItem.enhancement++;
+  return newItem;
+};
+
 
 
 

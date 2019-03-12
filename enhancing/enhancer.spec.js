@@ -15,5 +15,23 @@ describe("repair", () => {
         });
     });
 }); 
+
+describe("succeed", () => {
+    test("item's enhancement increases by 1", () => {
+        expect(enhancer.succeed({
+            name: "Iron Sword",
+            durability: 80,
+            enhancement: 0
+        })).toEqual({
+            name: "Iron Sword",
+            durability: 80,
+            enhancement: 1
+        });
+    });
+});
+
+
+
+
   
     
